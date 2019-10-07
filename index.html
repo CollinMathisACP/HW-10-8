@@ -1,0 +1,38 @@
+<html>
+<body>
+<head>
+    <link href="style.css" type="text/css" rel="stylesheet"/>
+</head>  
+
+<h1>D3 Basics</h1>
+<h2>Select</h2>
+<p>
+    This method takes a CSS selector as a parameter, and returns a reference to the first instance of that element in the DOM. It is called by the D3 object, in the form d3.select(selector).
+</p>
+
+<h2>Append</h2>
+<p>
+    This method also takes a CSS selector as a parameter. It creates a new instance of that element within the element that calls it. For example, d3.select(“p”).append(“h2”) would create an empty h2 element within the first paragraph element of the page.
+</p>
+    
+<h2>Text</h2>
+<p>
+    This method takes any string as a parameter, and inserts that string within the element that calls it. d3.select(“p”).text(“Hello world”) would add the string “Hello world” to the first paragraph element of the page.
+</p>
+    
+<h2>Style</h2>
+<p>
+    This method is used to alter the styling of the element that calls it, and can have varying amounts of parameters. In the book’s example, this method is used to alter the color of the text based on the data that is attached to the element.
+</p>
+
+<script>
+    var fontSizes = ["4", "8", "12", "16", "20"];
+    d3.select("body").select("h3").data(fontSizes).enter()
+        .append("h3").text("New h3")
+        .style("font-size", function(d)
+              {return parseInt(d)});
+    console.log("----------------");
+</script>    
+    
+</body>
+</html>
